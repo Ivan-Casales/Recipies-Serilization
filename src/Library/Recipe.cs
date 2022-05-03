@@ -11,7 +11,7 @@ using System.Text.Json.Serialization;
 
 namespace Recipies
 {
-    public class Recipe
+    public class Recipe: IJsonConvertible
     {
         // private ArrayList steps = new ArrayList();
         public Product FinalProduct { get; set; }
@@ -28,6 +28,17 @@ namespace Recipies
         public void RemoveStep(Step step)
         {
             this.Steps.Remove(step);
+        } 
+
+        public string ConvertToJson()
+        {
+            return JsonSerializer.Serialize(this);
+        }
+
+        public void LoadFromJson(string json)
+        {
+            Recipe deserialized = JsonSerializer.Deserialize<Recipe>(json);
+            Steps = deserialized.Steps;
         }
     }
 }

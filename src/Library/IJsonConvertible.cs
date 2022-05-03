@@ -1,9 +1,6 @@
+
 namespace Recipies
 {
-    /// <summary>
-    /// Define el tipo que tienen los objetos que pueder ser serializados en y deserializados desde texto en formato
-    /// Json.
-    /// </summary>
     public interface IJsonConvertible
     {
         /// <summary>
@@ -12,7 +9,6 @@ namespace Recipies
         /// </summary>
         /// <returns>El objeto convertido a texto en formato Json.</returns>
         string ConvertToJson();
-
         /// <summary>
         /// Asigna las propiedades del objeto a partir de texto en formato Json. El texto en formato Json puede ser
         /// obtenido utilizando <see cref="ConvertToJson"/>.
